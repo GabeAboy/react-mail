@@ -1,10 +1,23 @@
 import React from "react";
+import { browserHistory } from "react-router";
 
 export default class Draft extends React.Component {
-	render() {
-		const styles = this.getStyles();
+	sendMessage( event ) {
+		event.preventDefault();
 
+		browserHistory.push( "/inbox" );
+	}
+	render() {
 		return (
+		// inputs and textarea.
+		<button
+			onClick={ this.sendMessage }
+			style={ styles.sendButton }
+		>
+			Send
+		</button>
+		// rest of render
+	
 			<div>
 				<h1>New Message</h1>
 				<form style={ styles.form }>
